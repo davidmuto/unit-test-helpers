@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace UnitTestHelpers
 {
+    /// <summary>
+    /// A class that loads embedded resources from the calling assembly
+    /// </summary>
     public class ResourceLoader
     {
+        /// <summary>
+        /// Reads an embedded resource and returns the raw bytes of that resource
+        /// </summary>
+        /// <param name="name">The name of the resource</param>
+        /// <remarks>Will prefix the supplied name with the assembly name</remarks>
         public static byte[] GetResource(string name)
         {
             var asm = Assembly.GetCallingAssembly();
@@ -25,6 +33,11 @@ namespace UnitTestHelpers
             }
         }
 
+        /// <summary>
+        /// Reads an embedded resource as a string a returns the result
+        /// </summary>
+        /// <param name="name">The name of the resource</param>
+        /// <remarks>Will prefix the supplied name with the assembly name</remarks>
         public static string GetResourceString(string name)
         {
             var asm = Assembly.GetCallingAssembly();
