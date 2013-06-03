@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,7 +47,7 @@ namespace UnitTestHelpers
         {
             if (compareValue >= referenceValue)
             {
-                ThrowException(message);
+                ThrowException(message, MethodInfo.GetCurrentMethod().Name);
             }
         }
 
@@ -86,7 +87,7 @@ namespace UnitTestHelpers
         {
             if (compareValue > referenceValue)
             {
-                ThrowException(message);
+                ThrowException(message, MethodInfo.GetCurrentMethod().Name);
             }
         }
 
@@ -126,7 +127,7 @@ namespace UnitTestHelpers
         {
             if (compareValue <= referenceValue)
             {
-                ThrowException(message);
+                ThrowException(message, MethodInfo.GetCurrentMethod().Name);
             }
         }
 
@@ -166,17 +167,17 @@ namespace UnitTestHelpers
         {
             if (compareValue < referenceValue)
             {
-                ThrowException(message);
+                ThrowException(message, MethodInfo.GetCurrentMethod().Name);
             }
         }               
 
         #endregion
         
-        private static void ThrowException(string message)
+        private static void ThrowException(string message, string method)
         {
             if (string.IsNullOrEmpty(message))
             {
-                message = "IsLessThan Failed";
+                message = method + " Failed";
             }
 
             throw new AssertFailedException(message);
