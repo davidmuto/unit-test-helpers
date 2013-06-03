@@ -53,6 +53,7 @@
     <Compile Include="NumAssertTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceLoaderTests.cs" />
+    <Compile Include="AnonAssertTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\me.jpg" />
